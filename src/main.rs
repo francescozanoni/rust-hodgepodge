@@ -1,15 +1,21 @@
-use crate::functions::{get_int_from_input, get_string_from_input};
 use crate::entities::Player;
+use crate::functions::{get_int_from_input, get_string_from_input};
 
-mod functions;
 mod entities;
+mod functions;
 
 fn main() {
     println!("Enter croupier's name:");
-    let mut croupier: Player = Player { money: 10, name: get_string_from_input() };
+    let mut croupier: Player = Player {
+        money: 10,
+        name: get_string_from_input(),
+    };
 
     println!("Enter your name:");
-    let mut you = Player { money: 10, name: get_string_from_input() };
+    let mut you = Player {
+        money: 10,
+        name: get_string_from_input(),
+    };
 
     println!("\nSituation: {}, {}\n", croupier, you);
 
