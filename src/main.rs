@@ -1,52 +1,8 @@
-use crate::functions::get_int_from_input;
-use crate::functions::get_string_from_input;
-use crate::users::Player;
+use crate::functions::{get_int_from_input, get_string_from_input};
+use crate::entities::Player;
 
-mod functions {
-    pub fn get_string_from_input() -> String {
-        // https://www.tutorialspoint.com/rust/rust_input_output.htm
-        let mut a_string = String::new();
-        std::io::stdin().read_line(&mut a_string).unwrap();
-        String::from(a_string.trim())
-    }
-
-    pub fn get_int_from_input() -> u32 {
-        // https://www.programming-idioms.org/idiom/120/read-integer-from-stdin/1906/rust
-        get_string_from_input().parse().unwrap()
-    }
-}
-
-mod users {
-    extern crate rand;
-
-    use std::fmt::{Display, Formatter, Result};
-
-    use rand::Rng;
-
-    pub struct Player {
-        pub money: u32,
-        pub name: String,
-    }
-
-    impl Player {
-        pub fn roll_die() -> u32 {
-            // https://rust-lang-nursery.github.io/rust-cookbook/algorithms/randomness.html
-            rand::thread_rng().gen_range(1, 7)
-        }
-        pub fn gain(&mut self, bet: u32) {
-            self.money += bet;
-        }
-        pub fn loose(&mut self, bet: u32) {
-            self.money -= bet;
-        }
-    }
-
-    impl Display for Player {
-        fn fmt(&self, f: &mut Formatter<'_>) -> Result {
-            write!(f, "{} has {}", self.name, self.money)
-        }
-    }
-}
+mod functions;
+mod entities;
 
 fn main() {
     println!("Enter croupier's name:");
