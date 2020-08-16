@@ -27,3 +27,18 @@ impl Display for Player {
         write!(f, "{} has {}", self.name, self.money)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn constructor() {
+        let player: Player = Player {
+            money: 10,
+            name: String::from("Name"),
+        };
+        assert_eq!(10, player.money);
+        assert_eq!("Name", player.name);
+    }
+}
