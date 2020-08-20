@@ -38,9 +38,29 @@ mod tests {
     fn constructor() {
         let player: Player = Player {
             money: 10,
-            name: String::from("Name"),
+            name: String::from("Foo"),
         };
         assert_eq!(10, player.money);
-        assert_eq!("Name", player.name);
+        assert_eq!("Foo", player.name);
+    }
+
+    #[test]
+    fn gain() {
+        let mut player: Player = Player {
+            money: 10,
+            name: String::from("Foo"),
+        };
+        player.gain(5);
+        assert_eq!(15, player.money);
+    }
+
+    #[test]
+    fn loose() {
+        let mut player: Player = Player {
+            money: 10,
+            name: String::from("Foo"),
+        };
+        player.loose(5);
+        assert_eq!(5, player.money);
     }
 }

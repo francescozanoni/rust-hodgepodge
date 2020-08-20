@@ -22,7 +22,7 @@ fn main() {
 
     let mut game = Game { player_1, player_2 };
 
-    println!("Situation: {}, {}\n", game.player_1, game.player_2);
+    println!("{}\n", game);
 
     while game.is_finished() == false {
         println!("Enter money to bet:");
@@ -42,7 +42,7 @@ fn main() {
             game.player_1.loose(bet);
         }
 
-        println!("Situation: {}, {}\n", game.player_1, game.player_2);
+        println!("{}\n", game);
     }
 
     println!("{} wins!\n", game.get_winner().name);
