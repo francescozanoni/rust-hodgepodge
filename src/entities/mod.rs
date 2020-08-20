@@ -4,6 +4,8 @@ use std::fmt::{Display, Formatter, Result};
 
 use rand::Rng;
 
+pub mod game;
+
 pub struct Player {
     pub money: u32,
     pub name: String,
