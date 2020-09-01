@@ -1,13 +1,13 @@
-use crate::entities::game::Game;
-use crate::entities::Player;
-use crate::functions::{get_int_from_input, get_string_from_input};
+use crate::constants::{*};
+use crate::entities::{*};
+use crate::functions::{*};
 
 mod entities;
 mod functions;
-
-const START_MONEY: u32 = 10;
+mod constants;
 
 fn main() {
+    // Game setup.
     println!("Enter player 1's name:");
     let player_1: Player = Player {
         money: START_MONEY,
@@ -24,6 +24,7 @@ fn main() {
 
     println!("{}\n", game);
 
+    // Game is played.
     while game.is_finished() == false {
         println!("Enter money to bet:");
         let bet = get_int_from_input();
@@ -45,5 +46,6 @@ fn main() {
         println!("{}\n", game);
     }
 
+    // Game is finished.
     println!("{} wins!\n", game.get_winner().name);
 }
